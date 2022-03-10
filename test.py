@@ -18,7 +18,7 @@ sess = tf.compat.v1.Session(config=config)
 
 # load model
 model = load_model('./{}_retrained_v2.h5'.format(MODE_NAME))
-classes = ['ambulance', 'fire_engine', 'pickup_truck', 'police_car']
+classes = ['ambulance', 'car', 'fire_engine', 'motorbike', 'pickup_truck', 'police_car', 'truck']
 
 
 def detect_car_classified(frame):
@@ -35,9 +35,11 @@ def detect_car_classified(frame):
     return idx, confArr
 
 
-DIR_PATH = './data/val/ambulance'
+TEST_OBJECT = 'car'
+DIR_PATH = './data/val/' + TEST_OBJECT
 files = os.listdir(DIR_PATH)
 for file in files:
     frame = cv2.imread(os.path.join(DIR_PATH, file))
     labelIdx, conf = detect_car_classified(frame)
-    print("File: {} Label:{} conf:{:.2f}%".format(os.path.join(DIR_PATH, file), classes[labelIdx], conf[labelIdx] * 100))
+    if classes[labelIdx] != TEST_OBJECT:
+        print("File: {} Label:{} conf:{:.2f}%".format(os.path.join(DIR_PATH, file), classes[labelIdx], conf[labelIdx] * 100))

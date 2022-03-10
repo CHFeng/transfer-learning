@@ -1,6 +1,4 @@
 # IMPORT MODULES
-from lzma import MODE_NORMAL
-from statistics import mode
 import matplotlib.pyplot as plt
 from tensorflow.keras.callbacks import EarlyStopping, ModelCheckpoint, ReduceLROnPlateau
 from tensorflow.keras.layers import Input, Dense, GlobalAveragePooling2D
@@ -11,11 +9,11 @@ from tensorflow.keras.applications import DenseNet201, Xception
 
 # DenseNet201 default image size is 224
 # Xception default image size is 299
-IMG_SIZE = 299
+IMG_SIZE = 224
 # 辨識物件的種類
-CLASSES_NUM = 8
+CLASSES_NUM = 7
 # 設定預訓練使用的CNN辨識模組
-MODE_NAME = 'Xception'
+MODE_NAME = 'DenseNet201'
 # -----------------------------1.客製化模型--------------------------------
 # 載入keras模型(更換輸出圖片尺寸為指定的尺寸)
 if MODE_NAME == 'DenseNet201':
