@@ -1,4 +1,8 @@
 # 遷移式訓練
+* [Keras](https://keras.io/api/applications/)
+* [Transfer learning and fine-tuning](https://www.tensorflow.org/tutorials/images/transfer_learning)
+* [參考](https://ithelp.ithome.com.tw/articles/10190971)
+
 使用keras提供的預訓練模組進行遷移式訓練，將要訓練的資料分為指定種類的資料夾放置在/data之下。
 * /data/train放置訓練的資料集
 * /data/val放置驗證的資料集
